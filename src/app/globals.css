@@ -131,6 +131,7 @@ button:hover {
     body {
         height: 100vh;
         padding: 1rem; /* Reduce padding for mobile screens */
+        overflow: hidden;
     }
 
     section {
