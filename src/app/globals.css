@@ -2,32 +2,162 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(
+        to right, 
+        #0f2027,   /* Dark greenish blue */
+        #203a43,   /* Medium dark teal */
+        #2c5364    /* Dark teal */
+    );
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+section {
+    position: relative;
+    max-width: 30rem;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    backdrop-filter: blur(100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.inputBox {
+    position: relative;
+    margin: 3rem 0;
+    max-width: 310rem;
+    border-bottom: 0.2rem solid #fff;
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+
+.inputBox label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label{
+    top: -.2rem;
+    font-size: 0.8rem;
+}
+
+.forget {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -1.5rem;
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.forget label input {
+    margin-right: 0.5rem;
+}
+
+.forget a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+button {
+    width: 100%;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: #2c5364;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #203a43;
+}
+
+.register {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.register a {
+    font-weight: 600;
+}
+
+.register a:hover {
+    text-decoration: underline;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        padding: 1rem; /* Reduce padding for mobile screens */
+    }
+
+    section {
+        padding: 1.5rem 1.5rem; /* Reduce padding within the section on small screens */
+        max-width: 90%; /* Scale the section width to fit smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduce the heading font size */
+    }
+
+    .inputBox {
+        margin: 1.5rem 0; /* Reduce margins for better spacing */
+    }
+
+    button {
+        height: 2.5rem; /* Adjust button height for smaller screens */
+        font-size: 1rem; /* Adjust button text size */
+    }
+
+    .register {
+        font-size: 0.8rem; /* Slightly smaller text for registration prompt */
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .forget {
+        display: block;
+        margin: .2rem 0rem;
+    }
 }
