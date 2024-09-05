@@ -20,7 +20,7 @@ export default function Home() {
         </div>
         <button type="submit">Login</button>
         <div className="register">
-        <Link href="/signUp">Don't have an account? Sign Up</Link>
+        <Link href="/signUp">{`Don't`} have an account? Sign Up</Link>
         </div>
       </form>
     </section>
