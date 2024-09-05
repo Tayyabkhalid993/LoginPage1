@@ -129,6 +129,7 @@ button:hover {
 
 @media screen and (max-width: 550px) {
     body {
+        height: 100vh;
         padding: 1rem; /* Reduce padding for mobile screens */
     }
 
